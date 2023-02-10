@@ -11,14 +11,14 @@ class ValidParenthesesSolution{
             }
             else{
                 if(stk.isEmpty()) return false;
-                char top = stk.peek();
+                char top = stk.peek(); // peek() means stack top value
                 if(top == '(' && ch == ')') stk.pop();
                 else if(top == '{' && ch == '}') stk.pop();
                 else if(top == '[' && ch == ']') stk.pop();
                 else return false;
             }
         }
-        return stk.isEmpty();
+        return stk.isEmpty(); // if stack empty means all paranthesis closed correctly so true otherwise false (return true or false bcz function datatype is boolean)
     }
     public static void main(String[] args){
         ValidParenthesesSolution obj = new ValidParenthesesSolution();
