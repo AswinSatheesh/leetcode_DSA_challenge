@@ -21,7 +21,7 @@ public class RemoveEven{
     }
     public static void main(String args[]){
         RemoveEven obj = new RemoveEven();
-        int[] arr = {3,2,4,7,10,6,5};
+        int[] arr = {4,55,9,2,11,56,17};
         int[] result = obj.Solution(arr);
         for(int m=0; m<result.length;m++)
         {
