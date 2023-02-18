@@ -1,4 +1,5 @@
-//Aswin's solution
+//Aswin's solution - Here we are not reversing just printing reverse actual solution in another file called ReverseArray.
+
 public class ReverseAnArray{
     public static void main(String[] args){
         int[] arr = {2,11,5,10,7,8};
