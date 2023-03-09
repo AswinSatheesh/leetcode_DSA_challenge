@@ -31,6 +31,13 @@ public class SinglyLinkedList{
         }
         return count;
     }
+
+    //To insert newnode at the beginning of the singly linked list
+    public void insertAtFirst(int newvalue){
+        ListNode newNode = new ListNode(newvalue);
+        newNode.next = head;
+        head = newNode;
+    } 
     public static void main(String[] args){
         SinglyLinkedList obj = new SinglyLinkedList();
         obj.head = new ListNode(10);
@@ -44,6 +51,8 @@ public class SinglyLinkedList{
         second.next = third;
         third.next = four;
         four.next = five;
+
+        obj.insertAtFirst(99);
 
         obj.display();
         System.out.println();
