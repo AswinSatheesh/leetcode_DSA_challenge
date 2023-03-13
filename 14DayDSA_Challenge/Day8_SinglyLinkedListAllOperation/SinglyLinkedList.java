@@ -53,6 +53,24 @@ public class SinglyLinkedList{
         current.next = newNode;
     }
 
+    //delete last node of a singly linked list
+    public ListNode deleteLast(){
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode current = head;
+        ListNode previous = null;
+        
+        while(current.next != null){
+            previous = current;
+            current = current.next;
+        }
+
+        previous.next = null;
+        return current;
+
+    }
+
     public static void main(String[] args){
         SinglyLinkedList obj = new SinglyLinkedList();
         // obj.head = new ListNode(10);
@@ -76,6 +94,13 @@ public class SinglyLinkedList{
         obj.InsertAtLast(1);
         obj.InsertAtLast(8);
         obj.InsertAtLast(11);
+        // obj.display();
+
+
+        obj.deleteLast();
+        obj.deleteLast();
+        obj.deleteLast();
+
         obj.display();
 
 
