@@ -16,7 +16,7 @@ public class StringPalindrome{
     }
     public static void main(String[] args){
         StringPalindrome obj = new StringPalindrome();
-        String str= "that";
+        String str= "madam";
         System.out.println(obj.Solution(str));
     }
 }
