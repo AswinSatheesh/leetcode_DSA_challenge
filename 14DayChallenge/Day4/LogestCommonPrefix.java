@@ -15,7 +15,7 @@ public class LogestCommonPrefix{
 
     public static void main(String[] args){
         LogestCommonPrefix obj = new LogestCommonPrefix();
-        String[] str = {"malaya","malayll","malayalam"};
+        String[] str = {"flower","flow","flight"};
         System.out.println(obj.solution(str));
     }
 }

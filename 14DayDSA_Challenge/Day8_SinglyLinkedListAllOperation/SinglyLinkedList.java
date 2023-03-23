@@ -97,9 +97,9 @@ public class SinglyLinkedList{
         // obj.display();
 
 
-        obj.deleteLast();
-        obj.deleteLast();
-        obj.deleteLast();
+        // obj.deleteLast();
+        // obj.deleteLast();
+        // obj.deleteLast();
 
         obj.display();
 
