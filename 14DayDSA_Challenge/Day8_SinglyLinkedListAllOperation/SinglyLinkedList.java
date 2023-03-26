@@ -21,6 +21,16 @@ public class SinglyLinkedList{
         System.out.print(" null ");
     }
 
+    //To dispay singlylinked list with given head
+    public void displayWithHead(ListNode newhead){
+        ListNode current = newhead;
+        while(current != null){
+            System.out.print(current.data + " --> ");
+            current = current.next;
+        }
+        System.out.print(" null ");
+    }
+
     //To find the length of Singly linked list
     public int length(){
         int count = 0;
@@ -89,7 +99,7 @@ public class SinglyLinkedList{
 
     //search an element in a linked list
     public boolean find(int searchKey){
-        if(head == null){
+        if(head == null){ 
             return false;
         }
         ListNode current = head;
@@ -101,6 +111,68 @@ public class SinglyLinkedList{
         }
         return false;
     }
+
+    //To reverse a singly linked list
+    public ListNode reverse(){
+        if(head == null){
+            return head;
+        }
+        ListNode current = head;
+        ListNode previous = null;
+        ListNode next = null;
+        while(current != null){
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        return previous;
+    }
+
+    //FInd the middle node in a singly linked list- for that create one slowptr and fastptr - solowptr jumb one and fastptr jumb 2 , once fast ptr reach null slowptr will be middle.
+    public ListNode getMiddleNode(){
+        if(head == null){
+            return null;
+        }
+        ListNode slowptr = head;
+        ListNode fastptr = head;
+
+        while(fastptr != null && fastptr.next != null){
+            slowptr = slowptr.next;
+            fastptr = fastptr.next.next;
+        }
+
+        return slowptr;
+    }
+
+    //find the nth node from the end of a linked list
+    public ListNode getNthNodeFromEnd(int n){
+        if(head == null){
+            return null;
+        }
+        if(n <= 0){
+            throw new IllegalArgumentException("Invalid value : n = " + n);
+        }
+        ListNode mainPtr = head;
+        ListNode refPtr = head;
+
+        int count = 0;
+
+        while(count < n){
+            if(refPtr == null){
+                throw new IllegalArgumentException(n + "is greater than the number of nodes in list");
+            }
+            refPtr = refPtr.next;
+            count++;
+        }
+
+        while(refPtr != null){
+            refPtr = refPtr.next;
+            mainPtr = mainPtr.next;
+        }
+        return mainPtr;
+    }
+
 
     public static void main(String[] args){
         SinglyLinkedList obj = new SinglyLinkedList();
@@ -138,13 +210,21 @@ public class SinglyLinkedList{
         // obj.delete(3);
         // obj.display();
 
-        if(obj.find(11)){
-            System.out.println("Search key found!!");
-        }else{
-            System.out.println("Search key not found!");
+        // if(obj.find(11)){
+        //     System.out.println("Search key found!!");
+        // }else{
+        //     System.out.println("Search key not found!");
   
-        }
+        // }
 
+        // ListNode reverseListHead = obj.reverse();
+        // obj.displayWithHead(reverseListHead);
+
+        // ListNode MiddileNode = obj.getMiddleNode();
+        // System.out.println("Middle Node is : " + MiddileNode.data);
+
+        ListNode nthNodeFromEndResult = obj.getNthNodeFromEnd(2);
+        System.out.println("Nth node From end is : " + nthNodeFromEndResult.data);
 
     }
 }
