@@ -173,6 +173,21 @@ public class SinglyLinkedList{
         return mainPtr;
     }
 
+    //Insert a node in a sorted singly linked list
+    public void removeDuplicates(){
+        if(head == null){
+            return ;
+        }
+        ListNode current = head;
+        while(current != null && current.next != null){
+            if(current.data == current.next.data){
+                current.next = current.next.next;
+            }else{
+                current = current.next;
+            }
+        }
+    }
+
 
     public static void main(String[] args){
         SinglyLinkedList obj = new SinglyLinkedList();
@@ -195,8 +210,11 @@ public class SinglyLinkedList{
         // System.out.println("Length of the singlyliked list is : " + obj.length());
 
         obj.InsertAtLast(1);
-        obj.InsertAtLast(8);
-        obj.InsertAtLast(11);
+        obj.InsertAtLast(1);
+        obj.InsertAtLast(1);
+        obj.InsertAtLast(2);
+        obj.InsertAtLast(3);
+        obj.InsertAtLast(3);
         // obj.display();
 
 
@@ -223,8 +241,11 @@ public class SinglyLinkedList{
         // ListNode MiddileNode = obj.getMiddleNode();
         // System.out.println("Middle Node is : " + MiddileNode.data);
 
-        ListNode nthNodeFromEndResult = obj.getNthNodeFromEnd(2);
-        System.out.println("Nth node From end is : " + nthNodeFromEndResult.data);
+        // ListNode nthNodeFromEndResult = obj.getNthNodeFromEnd(2);
+        // System.out.println("Nth node From end is : " + nthNodeFromEndResult.data);
+
+        obj.removeDuplicates();
+        obj.display();
 
     }
 }
