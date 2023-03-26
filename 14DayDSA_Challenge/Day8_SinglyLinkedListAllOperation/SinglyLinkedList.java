@@ -21,7 +21,7 @@ public class SinglyLinkedList{
         System.out.print(" null ");
     }
 
-    //To dispay singlylinked list with given head
+    //To display singlylinked list with given head
     public void displayWithHead(ListNode newhead){
         ListNode current = newhead;
         while(current != null){
@@ -173,7 +173,7 @@ public class SinglyLinkedList{
         return mainPtr;
     }
 
-    //Insert a node in a sorted singly linked list
+    //To remove duplicates from sorted linked list
     public void removeDuplicates(){
         if(head == null){
             return ;
@@ -186,6 +186,25 @@ public class SinglyLinkedList{
                 current = current.next;
             }
         }
+    }
+
+    //Insert a node in a sorted singly linked list
+    public ListNode insertInSortedList(int value){
+        ListNode newnode = new ListNode(value);
+        if(head == null){
+            return newnode;
+        }
+        ListNode temp = null;
+        ListNode current = head;
+
+        while(current != null && current.data < newnode.data){
+            temp = current;
+            current = current.next;
+        }
+
+        temp.next = newnode;
+        newnode.next = current;
+        return head;
     }
 
 
@@ -210,11 +229,10 @@ public class SinglyLinkedList{
         // System.out.println("Length of the singlyliked list is : " + obj.length());
 
         obj.InsertAtLast(1);
-        obj.InsertAtLast(1);
-        obj.InsertAtLast(1);
-        obj.InsertAtLast(2);
-        obj.InsertAtLast(3);
-        obj.InsertAtLast(3);
+        obj.InsertAtLast(8);
+        obj.InsertAtLast(10);
+        obj.InsertAtLast(16);
+        obj.InsertAtLast(30);
         // obj.display();
 
 
@@ -244,7 +262,10 @@ public class SinglyLinkedList{
         // ListNode nthNodeFromEndResult = obj.getNthNodeFromEnd(2);
         // System.out.println("Nth node From end is : " + nthNodeFromEndResult.data);
 
-        obj.removeDuplicates();
+        // obj.removeDuplicates();
+        // obj.display();
+
+        obj.insertInSortedList(18);
         obj.display();
 
     }
