@@ -71,6 +71,22 @@ public class SinglyLinkedList{
 
     }
 
+    //delete a node from a sigly linked list
+    public void delete(int position){
+        if(position == 1){
+            head = head.next;
+        }else{
+            ListNode previous = head;
+            int count =1;
+            while(count < position-1){
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            previous.next = current.next;
+        }
+    }
+
     public static void main(String[] args){
         SinglyLinkedList obj = new SinglyLinkedList();
         // obj.head = new ListNode(10);
@@ -101,6 +117,10 @@ public class SinglyLinkedList{
         // obj.deleteLast();
         // obj.deleteLast();
 
+        obj.display();
+        System.out.println();
+
+        obj.delete(3);
         obj.display();
 
 
