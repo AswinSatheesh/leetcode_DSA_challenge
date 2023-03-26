@@ -207,6 +207,23 @@ public class SinglyLinkedList{
         return head;
     }
 
+    //remove a given key or node from singly linked list
+    public void deleteNode(int key){
+        ListNode current = head;
+        ListNode temp = null;
+        if(current != null && current.data == key){
+            head = head.next;
+            return;
+        }
+
+        while(current != null && current.data != key){
+            temp = current;
+            current = current.next;
+        }
+
+        temp.next = current.next;
+    }
+
 
     public static void main(String[] args){
         SinglyLinkedList obj = new SinglyLinkedList();
@@ -265,7 +282,10 @@ public class SinglyLinkedList{
         // obj.removeDuplicates();
         // obj.display();
 
-        obj.insertInSortedList(18);
+        // obj.insertInSortedList(18);
+        // obj.display();
+
+        obj.deleteNode(16);
         obj.display();
 
     }
