@@ -64,12 +64,33 @@ public class DoublyLinkedList{
         System.out.println("null");
     }
 
+    //insert node at the beginning of a Doubly linked list.
+    public void insertFirst(int value){
+        ListNode newNode = new ListNode(value);
+
+        if(isEmpty()){
+            tail = newNode;
+        }else{
+            head.previous = newNode;
+        }
+        newNode.next = head;
+        head = newNode;
+        length++;
+    }
+
     public static void main(String[] args){
         DoublyLinkedList dll = new DoublyLinkedList();
-        dll.insertLast(1);
-        dll.insertLast(10);
-        dll.insertLast(15);
-        dll.insertLast(25);
+        // dll.insertLast(1);
+        // dll.insertLast(10);
+        // dll.insertLast(15);
+        // dll.insertLast(25);
+
+        // dll.displayForward();
+        // dll.displayBackward();
+
+        dll.insertFirst(1);
+        dll.insertFirst(10);
+        dll.insertFirst(55);
 
         dll.displayForward();
         dll.displayBackward();
