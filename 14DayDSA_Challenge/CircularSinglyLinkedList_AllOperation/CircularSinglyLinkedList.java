@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 public class CircularSinglyLinkedList{
     private ListNode last;
     private int length;
@@ -79,6 +80,38 @@ public class CircularSinglyLinkedList{
         length++;
     }
 
+    //Remove First node from Circular singly linked list
+    // public ListNode removeFirst(){
+    //     if(isEmpty()){
+    //         throw new NoSuchElementException("Circular Singly Linked List is already empty");
+    //     }
+    //     ListNode temp = last.next;
+    //     if(last.next == last){
+    //         last = null;
+    //     }else{
+    //         last.next = temp.next;
+    //     }
+    //     temp.next = null;
+    //     length--;
+    //     return temp;
+    // }
+
+    public int removeFirst(){
+        if(isEmpty()){
+            throw new NoSuchElementException("Circular Singly Linked List is already empty");
+        }
+        ListNode temp = last.next;
+        int result  = temp.data;
+        if(last.next == last){
+            last = null;
+        }else{
+            last.next = temp.next;
+        }
+        temp.next = null; // no need automatically garbage collected by java
+        length--;
+        return result;
+    }
+
     public static void main(String[] args){
         CircularSinglyLinkedList csll = new CircularSinglyLinkedList();
         // csll.createCircularLinkedList();
@@ -86,9 +119,26 @@ public class CircularSinglyLinkedList{
         // csll.insertFirst(15);
         // csll.insertFirst(20);
 
+        // csll.insertLast(1);
+        // csll.insertLast(10);
+        // csll.insertLast(30);
+        // csll.display();
+        // System.out.println();
+
+
+        // csll.removeFirst();
+        // csll.removeFirst();
+        // csll.removeFirst();
+        // csll.removeFirst();
+        // csll.display();
+
         csll.insertLast(1);
         csll.insertLast(10);
         csll.insertLast(30);
         csll.display();
+
+        System.out.println();
+        System.out.println(csll.removeFirst());
+        System.out.println(csll.removeFirst());
     }
 }
