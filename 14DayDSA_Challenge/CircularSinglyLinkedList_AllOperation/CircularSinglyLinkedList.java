@@ -65,12 +65,30 @@ public class CircularSinglyLinkedList{
         length++;
     }
 
+    //Insert node at end
+    public void insertLast(int data){
+        ListNode temp = new ListNode(data);
+        if(last == null){
+            last = temp;
+            last.next = last;
+        }else{
+            temp.next = last.next;
+            last.next = temp;
+            last = temp;
+        }
+        length++;
+    }
+
     public static void main(String[] args){
         CircularSinglyLinkedList csll = new CircularSinglyLinkedList();
         // csll.createCircularLinkedList();
-        csll.insertFirst(10);
-        csll.insertFirst(15);
-        csll.insertFirst(20);
+        // csll.insertFirst(10);
+        // csll.insertFirst(15);
+        // csll.insertFirst(20);
+
+        csll.insertLast(1);
+        csll.insertLast(10);
+        csll.insertLast(30);
         csll.display();
     }
 }
