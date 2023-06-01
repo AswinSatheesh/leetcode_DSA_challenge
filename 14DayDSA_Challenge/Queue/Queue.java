@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 public class Queue{
     private ListNode front;
     private ListNode rear;
@@ -48,7 +49,22 @@ public class Queue{
             System.out.print(current.data + " --> ");
             current = current.next;
         }
-        System.out.print("null");
+        System.out.println("null");
+    }
+
+    //Remove an Element
+    public int dequeue(){
+        if(isEmpty()){
+            throw new NoSuchElementException("Queue is already empty");
+        }
+
+        int result = front.data;
+        front = front.next;
+        if(front == null){
+            rear = null;
+        }
+        length--;
+        return result;
     }
 
     public static void main(String[] args){
@@ -57,5 +73,11 @@ public class Queue{
         queue.enqueue(10);
         queue.enqueue(20);
         queue.print();
+
+        // queue.dequeue();
+        // queue.dequeue();
+        // queue.dequeue();
+        // queue.dequeue();
+        // queue.print();
     }
 }
